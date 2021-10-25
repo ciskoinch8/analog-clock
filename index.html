@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+        <title>Nuemorphic Clock</title>
+<style media="screen">
+*{
+    margin:0; padding:0;
+    box-sizing: border-box;
+}
+.container {
+    min-height: 100vh;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.clock {
+    height: 250px;
+    width: 250px;
+    background: url(cloock.png) no-repeat;
+    background-size: cover;
+    border: 10px solid transparent;
+    border-radius: 50%;
+    box-shadow: 3px 3px 5px  #ccc,
+    3px 3px 5px  #fff, 3px 3px 5px  #ccc inset,
+    3px 3px 5px  #fff inset;
+    position: relative;
+}
+.clock::before{
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;;
+    transform: translate(-50%, -50%);
+    background: #f0f0f0;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    z-index: 10;
+    box-shadow: 3px 3px 5px  #ccc,
+    3px 3px 5px  #fff, 3px 3px 5px  #ccc inset,
+    3px 3px 5px  #fff inset;
+
+}
+.second{
+    position: absolute;
+    top: 27px; left: 50%;
+    transform: translate(-50%);
+    height: 115px;
+    width: 4px;
+    background: red;
+    border-radius: 100% 100% 5px 5px;
+    animation: second 60s steps(60) infinite;
+    transform-origin: 50% 75%;
+    z-index: 2;
+}
+@keyframes second {
+    0% {
+        transform: translate(-50%) rotateZ(0deg);
+    }
+    100% {
+        transform: translate(-50%) rotateZ(360deg);
+    }
+}
+.minute{
+    position: absolute;
+    top: 15px; left: 50%;
+    transform: translate(-50%);
+    height: 100px;
+    width: 5px;
+    background: green;
+    border-radius: 50px;
+    animation: minute 3600s steps(6000) infinite;
+    transform-origin: bottom;
+    z-index: 1;
+}
+@keyframes minute {
+    0% {
+        transform: translate(-50%) rotateZ(0deg);
+    }
+    100% {
+        transform: translate(-50%) rotateZ(360deg);
+    }
+}
+.hour {
+    position: absolute;
+    top: 55px; left: 50%;
+    transform: translate(-50%);
+    height: 60px;
+    width: 6px;
+    background: purple;
+    border-radius: 50px;
+    animation: hour 216000s steps(216000) infinite;
+    transform-origin: bottom;
+}
+@keyframes hour {
+    0% {
+        transform: translate(-50%) rotateZ(0deg);
+    }
+    100% {
+        transform: translate(-50%) rotateZ(360deg);
+    }
+}
+
+</style>
+        
+</head>
+<body>
+   <div class="container">
+      <div class="clock">
+          <div class="second"></div>
+          <div class="minute"></div>
+          <div class="hour"></div>
+      </div>
+   </div>
+</body>
+
+</html>
